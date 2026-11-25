@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="floppy" viewBox="0 0 39 39">
+    <path fill="currentColor" d="
+      M0 0h33v3H0z M0 3h3v3H0z M6 3h3v3H6z M21 3h3v3H21z M27 3h3v3H27z
+      M33 3h3v3H33z M0 6h3v3H0z M6 6h3v3H6z M21 6h3v3H21z M27 6h3v3H27z
+      M36 6h3v3H36z M0 9h3v3H0z M6 9h3v3H6z M21 9h3v3H21z M27 9h3v3H27z
+      M36 9h3v3H36z M0 12h3v3H0z M6 12h24v3H6z M36 12h3v3H36z M0 15h3v3H0z
+      M36 15h3v3H36z M0 18h3v3H0z M36 18h3v3H36z M0 21h3v3H0z M6 21h27v3H6z
+      M36 21h3v3H36z M0 24h3v3H0z M6 24h3v3H6z M30 24h3v3H30z M36 24h3v3H36z
+      M0 27h3v3H0z M6 27h3v3H6z M30 27h3v3H30z M36 27h3v3H36z M0 30h3v3H0z
+      M6 30h3v3H6z M30 30h3v3H30z M36 30h3v3H36z M0 33h3v3H0z M6 33h3v3H6z
+      M30 33h3v3H30z M36 33h3v3H36z M0 36h39v3H0z
+    " />
+  </symbol>
+</svg>
