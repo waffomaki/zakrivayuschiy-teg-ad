@@ -22,7 +22,8 @@ likeButtonArray.forEach((button, index) => {
 });
 
 function toggleIsLiked(heart, button) {
-  heart.classList.toggle('is-liked');
+  const isLiked = heart.classList.toggle('is-liked');
+  heart.closest('.card__icon-button').setAttribute('aria-pressed', String(isLiked));
   setButtonText(heart, button);
 }
 

@@ -1,16 +1,301 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
   min-inline-size: 320px;
-  min-block-size: 100dvb;
+  min-block-size: 100vh;
+  padding-block: var(--section-gap, 100px);
+  color: var(--page-color, #000);
+  background-color: #e7e7e7;
+  background-image: var(--page-background);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: var(--main-font, Inter), Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.1667;
+  font-variation-settings: "wght" var(--body-weight, 400);
+}
+
+.content-width {
+  inline-size: min(100%, var(--content-width, 700px));
+  margin-inline: auto;
+}
+
+.header {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  margin-block-end: var(--section-gap, 100px);
+  border: 2px solid currentColor;
+  padding-block: var(--header-padding, 120px);
+  background-color: var(--surface-color, #fff);
+  font-family: var(--accent-font, "Press Start 2P"), monospace;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.header__logo {
+  font-size: min(
+    var(--logo-size, 49px),
+    calc(var(--content-width, 700px) / 7.5),
+    13.0667vw
+  );
+  white-space: nowrap;
+}
+
+.header__title {
+  font-size: var(--heading-size, 14px);
+  font-weight: 400;
+}
+
+.cards {
+  display: grid;
+  gap: var(--card-gap, 50px);
+}
+
+.card {
+  min-inline-size: 0;
+  border: 2px solid currentColor;
+  background-color: var(--surface-color, #fff);
+}
+
+.card__title {
+  padding: 4px 10px;
+  font-size: inherit;
+  font-weight: var(--title-weight, 785);
+  line-height: 1.2222;
+  font-variation-settings: "wght" var(--title-weight, 785);
+}
+
+.card__picture {
+  position: relative;
+  isolation: isolate;
+  border-block: 2px solid currentColor;
+}
+
+.card__image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__image--bicycles {
+  filter: contrast(1.08);
+}
+
+.card__image--swans {
+  filter: brightness(1.14) saturate(0.85);
+}
+
+.card__image--sandpiper {
+  filter: sepia(0.2);
+}
+
+.card__image--poppy {
+  filter: saturate(1.2);
+}
+
+.card__image--library {
+  filter: brightness(1.1);
+}
+
+.card__image--trees {
+  filter: contrast(1.18) grayscale(1);
+}
+
+.card__image--cafe {
+  filter: sepia(0.18) saturate(0.84);
+}
+
+.card__image--waterfall {
+  filter: saturate(0.88);
+}
+
+.card__label {
+  position: absolute;
+  inset-block-start: 25px;
+  inset-inline-end: 25px;
+  max-inline-size: calc(100% - 50px);
+  opacity: 0.5;
+  font-family: var(--accent-font, "Press Start 2P"), monospace;
+  font-size: 14px;
+  line-height: 1;
+  overflow-wrap: anywhere;
+  text-align: end;
+  text-shadow:
+    -1px 0 var(--label-outline-color, #fff),
+    1px 0 var(--label-outline-color, #fff),
+    0 -1px var(--label-outline-color, #fff),
+    0 1px var(--label-outline-color, #fff);
+  text-transform: uppercase;
+  mix-blend-mode: hard-light;
+}
+
+@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--label-outline-color, #fff);
+    text-stroke: 1px var(--label-outline-color, #fff);
+    text-shadow: none;
+  }
+}
+
+.card__content {
+  display: grid;
+  gap: var(--content-gap, 25px);
+  padding: var(--content-gap, 25px);
+}
+
+.card__actions {
+  display: flex;
+  justify-self: end;
+  align-items: center;
+}
+
+.card__icon-button,
+.button {
+  color: var(--page-color, #000);
+  cursor: pointer;
+}
+
+.card__icon-button {
+  display: grid;
+  inline-size: 39px;
+  block-size: 38px;
+  place-content: center;
+  border: 2px solid transparent;
+  padding: 0;
+  background-color: transparent;
+  transition: border-color 0.3s ease;
+}
+
+.card__icon-button:focus,
+.button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: currentColor;
+}
+
+.button {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid currentColor;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--surface-color, #fff);
+  font-family: var(--accent-font, "Press Start 2P"), monospace;
+  font-size: 14px;
+  line-height: 1;
+  transition: box-shadow 0.3s ease;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px currentColor;
+}
+
+.button::before {
+  position: absolute;
+  inset: 0;
+  background-color: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button__text,
+.button__icon {
+  position: relative;
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  min-inline-size: 130px;
+  min-block-size: 38px;
+  padding: 9px 17px;
+}
+
+.footer {
+  display: grid;
+  justify-items: center;
+  margin-block-start: var(--card-gap, 50px);
+}
+
+.save-button {
+  gap: 8px;
+  max-inline-size: calc(100% - 20px);
+  padding: 15px 18px;
+}
+
+.button__icon {
+  inline-size: 21px;
+  block-size: 21px;
+  flex: none;
+}
+
+.save-dialog {
+  display: none;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 30px 20px;
+  inline-size: 353px;
+  max-inline-size: calc(100% - 34px);
+  border: 2px solid currentColor;
+  padding: 28px;
+  color: var(--page-color, #000);
+  background-color: var(--surface-color, #fff);
+  font-family: var(--accent-font, "Press Start 2P"), monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.save-dialog[open] {
+  display: grid;
+}
+
+.save-dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+.save-dialog__form {
+  grid-column: 1 / -1;
+}
+
+.save-dialog__button {
+  inline-size: 100%;
+  min-block-size: 38px;
+}
+
+@media (width <= 375px) {
+  .save-button {
+    flex-direction: column;
+  }
+
+  .button__icon {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+
+  .save-dialog {
+    padding-inline: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card__icon-button,
+  .button,
+  .button::before {
+    transition: none;
+  }
 }
