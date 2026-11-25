@@ -225,13 +225,8 @@
   padding: 9px 17px;
 }
 
-.footer {
-  display: grid;
-  justify-items: center;
-  margin-block-start: var(--card-gap, 50px);
-}
-
 .save-button {
+  justify-self: center;
   gap: 8px;
   max-inline-size: calc(100% - 20px);
   padding: 15px 18px;
